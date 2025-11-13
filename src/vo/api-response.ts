@@ -9,10 +9,10 @@ import { HttpExceptionBodyMessage } from "@nestjs/common/interfaces/http/http-ex
 
 // }
 type ApiResponseResult<D> = {
-  code?: string;
   result: boolean;
-  data: D;
+  code?: string;
   message?: HttpExceptionBodyMessage;
+  data: D;
 };
 
 class ApiResponse<D> {
@@ -28,23 +28,23 @@ class ApiResponse<D> {
     data: D;
   }): ApiResponseResult<D> {
     return {
-      code: params.code ?? HttpStatus.OK.toString(),
       result: true,
-      data: params.data,
+      code: params.code ?? HttpStatus.OK.toString(),
       message: params.message ?? "",
+      data: params.data,
     };
   }
 
   static FAIL<D>(params: {
     code?: string;
-    data: D;
     message?: HttpExceptionBodyMessage;
+    data: D;
   }): ApiResponseResult<D> {
     return {
-      code: params.code ?? HttpStatus.INTERNAL_SERVER_ERROR.toString(),
       result: false,
-      data: params.data,
+      code: params.code ?? HttpStatus.INTERNAL_SERVER_ERROR.toString(),
       message: params.message ?? "",
+      data: params.data,
     };
   }
 }
