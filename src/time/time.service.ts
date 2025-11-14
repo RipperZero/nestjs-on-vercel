@@ -1,5 +1,5 @@
+import { Injectable } from "@nestjs/common/decorators/core/injectable.decorator";
 import dayjs from "dayjs";
-import { Injectable } from "@nestjs/common";
 
 @Injectable()
 class TimeService {
